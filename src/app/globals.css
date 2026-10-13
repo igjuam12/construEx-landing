@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+/*
+ * Tokens de la guía visual (E5 + prototipo de Claude Design). La paleta es
+ * la de marca; los componentes de src/components/ui/ y el app-shell consumen
+ * estas utilidades (bg-fondo, text-tinta, bg-lateral, font-mono, etc.).
+ * Tipografía de marca: Archivo (UI) + JetBrains Mono (datos/etiquetas),
+ * cargadas con next/font en layout.tsx e inyectadas como variables.
+ */
+@theme {
+  --color-fondo: #f5f4f0;
+  --color-fondo-secundario: #efede7;
+  --color-superficie: #fcfbf9;
+  --color-tinta: #1a1a18;
+  --color-tinta-secundaria: #2a2a26;
+  /* Gris atenuado a AA (≈5:1 sobre los fondos claros); antes #8a877e (~3.3:1). */
+  --color-tinta-apagada: #6c685d;
+  --color-primario: #d85a30;
+  --color-primario-suave: #f3d9cc;
+
+  /* Sidebar / paneles oscuros */
+  --color-lateral: #1a1a18;
+  --color-lateral-texto: #cfccc1;
+  /* Atenuado sobre fondos oscuros a AA (≈5:1 sobre #1a1a18); antes #6c685d (~3.1:1). */
+  --color-lateral-apagado: #948f81;
+  --color-lateral-linea: #2a2a26;
+
+  /* Estado + variantes suaves (fondo de badges) */
+  --color-exito: #4a7c4a;
+  --color-advertencia: #9c6a14;
+  --color-riesgo: #c44a2b;
+  --color-info: #2d5a72;
+  --color-exito-suave: #e1eadd;
+  --color-advertencia-suave: #f2e6c9;
+  --color-riesgo-suave: #f2dbd0;
+  --color-info-suave: #dce6ec;
+
+  --color-borde: #e4e1d9;
+  --color-borde-marcado: #d6d2c8;
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-pixel: var(--font-pixelify), var(--font-jetbrains), ui-monospace, monospace;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+}
+
+/* Los títulos de la marca son Archivo con peso alto y tracking ajustado. */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.015em;
+}
+
+/* Landing: desplazamiento suave a las anclas del header (respeta reduced-motion). */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Flujo de las líneas punteadas de la red de obras (sección diferenciador). */
+  .red-linea {
+    animation: construex-fluir 1.4s linear infinite;
+  }
+  /* Latido del indicador "LIVE". */
+  .red-latido {
+    animation: construex-latir 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes construex-fluir {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes construex-latir {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}

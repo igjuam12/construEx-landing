@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Ícono de pestaña: el isotipo de ConstruEx (dos cuadrados superpuestos, tinta + acento naranja), el mismo de components/landing/marca.tsx. -->
+  <rect width="64" height="64" rx="12" fill="#faf8f4"/>
+  <rect x="10" y="10" width="30" height="30" rx="2" stroke="#1a1a18" stroke-width="4"/>
+  <rect x="24" y="24" width="30" height="30" rx="2" stroke="#d85a30" stroke-width="4"/>
+</svg>
